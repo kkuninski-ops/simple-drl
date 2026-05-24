@@ -1,6 +1,15 @@
 # Simple DRL — Opel Vectra C 2008 (Xenon D1S/H1)
 
-Хардуерна схема с **op-amp компаратор (LM393)** и **N-channel MOSFET (IRFZ44N)** за решаване на два проблема при активиран OpCom DRL Version 3.
+Четири хардуерни схеми за Opel Vectra C 2008 с ксеноново осветление (D1S/H1) и активиран OpCom DRL Version 3.
+
+| # | Схема | Чип | Папка |
+|---|-------|-----|-------|
+| 1 | Фарове само при пален двигател | LM393 + IRFZ44N | `circuit1_engine_detect/` |
+| 2 | ILL+ яркост в AUTO режим | LM358 + IRF9540N | `circuit2_ill_dimmer/` |
+| 3 | Стрелки на таблото при стартиране | ATtiny85 | `circuit3_dial_sweep/` |
+| 4 | S32 врътка → сила на звука на радиото | ATtiny85 | `circuit4_s32_radio_vol/` |
+
+**Програмиране на ATtiny85:** виж [`programming_guide.md`](programming_guide.md)
 
 ---
 
@@ -193,8 +202,11 @@ LM358 конфигурация (voltage follower):
 ## Файлове в репото
 
 - `README.md` — тази документация
-- `circuit1_engine_detect/` — схема за детекция на работещ двигател
-- `circuit2_ill_dimmer/` — схема за ILL+ димер
+- `circuit1_engine_detect/` — LM393 + MOSFET: фарове само при пален двигател
+- `circuit2_ill_dimmer/` — LM358 + MOSFET: ILL+ яркост при AUTO
+- `circuit3_dial_sweep/` — ATtiny85: sweep на стрелките при стартиране
+- `circuit4_s32_radio_vol/` — ATtiny85: S32 врътка управлява силата на звука
+- `programming_guide.md` — как да програмираш ATtiny85 с Arduino
 - `wiring_notes.md` — бележки за конкретните проводници на Vectra C 2008
 
 ---
